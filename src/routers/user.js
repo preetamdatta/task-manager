@@ -94,7 +94,7 @@ router.patch('/users/me', auth, async(req, res) => {
     const isAllowed = updates.every((up) => updateAllowed.includes(up))
 
     if(!isAllowed) {
-        return res.status(404).send()
+        return res.status(400).send()
     }
 
     try {
@@ -129,8 +129,8 @@ router.delete('/users/me', auth, async(req,res) => {
 })
 
 router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
-    console.log(req)
-    res.send("");
+    // console.log(req)
+    res.send();
 })
 
 module.exports = router
